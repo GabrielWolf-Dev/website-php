@@ -1,12 +1,14 @@
-<h1>Página de contato</h1>
+<h1 class="contact-title">Página de contato</h1>
 
-<main class="container">
+<main class="container contact">
+<img class="contact__img" src="<?php echo INCLUDE_PATH ?>assets/imgs/contact.jpg" alt="Duas pessoas conversando" />
+
     <form method="POST">
-        <input placeholder="Nome" type="text" name="name" required />
-        <input placeholder="E-mail" type="email" name="email" required />
-        <input placeholder="Telefone" type="tel" name="phone" required />
-        <textarea placeholder="Sua Mensagem..." required name="message"></textarea>
+        <input class="contact__input" placeholder="Nome" type="text" name="name" required />
+        <input class="contact__input" placeholder="E-mail" type="email" name="email" required />
+        <input class="contact__input" placeholder="Telefone" type="tel" name="phone" required />
+        <textarea class="contact__textarea" placeholder="Sua Mensagem..." required name="message"></textarea>
 
-        <button type="submit">Enviar</button>
+        <button class="contact__btn" type="submit">Enviar</button>
     </form>
 </main>

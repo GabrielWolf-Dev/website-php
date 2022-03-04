@@ -310,6 +310,51 @@ textarea { resize: none; }
     margin: 32px auto;
 }
 
+/* Contact Page */
+.contact-title {
+    text-align: center;
+    font-size: 2rem;
+    color:#3d437a;
+    margin: 48px 0;
+}
+
+.contact {
+    width: 100%;
+    max-width: 800px;
+    margin: 42px auto;
+}
+
+.contact__input, .contact__textarea {
+    width: 100%;
+    height: 42px;
+    padding-left: 16px;
+    display: inline-block;
+    margin: 16px 0;
+}
+
+.contact__textarea {
+    height: 180px;
+    padding: 16px;
+}
+
+.contact__btn {
+    width: 100%;
+    max-width: 180px;
+    height: 42px;
+    color: white;
+    background-color: #00c59e;
+    transition: all .3s ease-out;
+}
+
+.contact__btn:hover { opacity: 0.8; }
+
+.contact__img {
+    width: 100%;
+    max-width: 800px;
+    margin: 32px auto;
+    border: 6px solid #999;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     /* Header */
