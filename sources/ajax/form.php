@@ -1,8 +1,7 @@
 <?php
-require('../config.php');
-require('../sources/Mailer/Email.php');
+require('../../config.php');
 
-use Mailer\Email;
+use Source\Mailer\Email;
 
 $data = [];
 

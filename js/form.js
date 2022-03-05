@@ -4,7 +4,7 @@ $(function() {
         const url = 'http://localhost/website-php/';
 
         $.ajax({
-            url: url + 'ajax/form.php',
+            url: url + 'sources/ajax/form.php',
             method: 'POST',
             dataType: 'json',
             data: form.serialize()
