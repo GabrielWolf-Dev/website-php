@@ -1,53 +1,50 @@
 <?php
-    namespace Mailer;
+namespace Mailer;
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    class Email {
-        private $mail;
+class Email {
+    private $mailer;
 
-        function __construct() {
-            $this->mail = new PHPMailer(true);
-    
-            $this->mail->isSMTP();
-            $this->mail->isHTML();
-    
-            $this->mail->SMTPAuth = true;
-            $this->mail->CharSet = 'utf-8';
-            $this->mail->SMTPSecure = 'tls';
-    
-            $this->mail->Host = MAIL['host'];
-            $this->mail->Port = MAIL['port'];
-            $this->mail->Username = MAIL['user'];
-            $this->mail->Password = MAIL['passwd'];
-        }
-    
-        public function add($subject, $body){
-            $this->mail->Subject = $subject;
-            $this->mail->Body = $body;
-            $this->mail->AltBody = strip_tags($body);
-        }
-    
-        public function send($email, $name){
-            try{
-                $this->mail->setFrom(MAIL['user'], MAIL['from_name']);
-                $this->mail->addAddress($email, $name);
-                
-                $this->mail->send();
-            } catch(Exception $err){
-                $this->debug_to_consoleLog($err->getMessage());
-            }
-    
-            die(json_encode($this->isSuccess));
-        }
-    
-        protected function debug_to_consoleLog($data) {
-            $output = $data;
-            if (is_array($output))
-                $output = implode(',', $output);
-        
-            echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    function __construct() {
+        $this->mailer = new PHPMailer();
+
+        try {
+            $this->mailer->isSMTP();
+
+            $this->mailer->SMTPAuth = true;
+            $this->mailer->SMTPSecure = 'tls';
+            $this->mailer->Host = MAIL['host'];
+            $this->mailer->Username = MAIL['from_email'];
+            $this->mailer->Password = MAIL['passwd'];
+            $this->mailer->Port = MAIL['port'];
+            
+
+            $this->mailer->isHTML(true);
+            $this->mailer->CharSet = 'utf-8';
+        } catch(Exception $error) {
+            echo "Erro ao enviar mensagem: {$error}";
         }
     }
-?>
+
+    public function addAdress($email, $name) {
+        $this->mailer->setFrom(MAIL['from_email'], MAIL['from_name']);
+        $this->mailer->addAddress($email, $name);
+    }
+
+    public function formatEmailMarketing($subject, $html){
+        $this->mailer->Subject = $subject;
+        $this->mailer->msgHTML($html);
+    }
+
+    public function formatEmailForm(){}
+
+    public function sendEmail() {
+        if($this->mailer->send()){
+            echo "<script>alert('Mensagem enviada com sucesso!');</script>";
+        } else {
+            echo "<script>alert('Não foi possível enviar a mensagem :( {$this->mailer->ErrorInfo}');</script>";
+        }
+    }
+}
