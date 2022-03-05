@@ -5,26 +5,12 @@
         <div class="banner__bg-img"></div><!--banner__bg-img-->
         <div class="banner__bg-img"></div><!--banner__bg-img-->
 
-        <?php
-            if(isset($_POST['action'])){
-                $email = $_POST['email'];
-                $template = file_get_contents(INCLUDE_PATH.'email_mkt/template.html');
-
-                if($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)){
-                    $mail = new Mailer\Email();
-                    $mail->addAdress($email, 'Gabriel');
-                    $mail->formatEmailMarketing('Conheça a Danki!', $template);
-                    $mail->sendEmail();
-                } else {    
-                    echo "<script>alert('O e-mail está inválido!');</script>";
-                }
-            }
-        ?>
         <form method="POST" class="banner-email-marketing">
             <h2 class="banner__title">Saiba mais sobre o nosso produto:</h2>
             <input placeholder="Digite o seu e-mail..." required type="email" class="banner__input" name="email" id="email" />
+            <input type="hidden" name="form-home" />
 
-            <button name="action" class="banner__submit" type="submit">Enviar</button>
+            <button class="banner__submit" type="submit">Enviar</button>
         </form><!--banner-email-marketing-->
 
         <div class="bullets"></div><!--bullets-->

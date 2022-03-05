@@ -38,13 +38,21 @@ class Email {
         $this->mailer->msgHTML($html);
     }
 
-    public function formatEmailForm(){}
+    public function formatEmailForm($subject, $body){
+        $this->mailer->Subject = $subject;
+        $this->mailer->Body = $body;
+        $this->mailer->AltBody = $body;
+    }
 
-    public function sendEmail() {
+    public function sendEmail($data) {
         if($this->mailer->send()){
-            echo "<script>alert('Mensagem enviada com sucesso!');</script>";
+            $data['success'] = true;
+            $data['error'] = false;
         } else {
-            echo "<script>alert('Não foi possível enviar a mensagem :( {$this->mailer->ErrorInfo}');</script>";
+            $data['success'] = false;
+            $data['error'] = true;
         }
+
+        die(json_encode($data));
     }
 }

@@ -61,8 +61,6 @@
     <?php if($isUrl === 'home' || $isUrl === '') { ?>
         <script src="<?php echo INCLUDE_PATH ?>js/slider.js"></script>
     <?php } ?>
-    <?php if($isUrl === 'contato') { ?>
-        <script src="<?php echo INCLUDE_PATH ?>js/form.js"></script>
-    <?php } ?>
+    <script src="<?php echo INCLUDE_PATH ?>js/form.js"></script>
 </body>
 </html>

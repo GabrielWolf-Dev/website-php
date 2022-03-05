@@ -8,6 +8,7 @@
         <input class="contact__input" placeholder="E-mail" type="email" name="email" required />
         <input class="contact__input" placeholder="Telefone" type="tel" name="phone" required />
         <textarea class="contact__textarea" placeholder="Sua Mensagem..." name="message" required></textarea>
+        <input type="hidden" name="form-contact" />
 
         <button class="contact__btn" type="submit">Enviar</button>
     </form>
