@@ -34,6 +34,33 @@ textarea { resize: none; }
     clear: both;
 }
 
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #00c59e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 32px auto;
+    display: none;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.msg-error {
+    width: 80%;
+    background-color: rgb(231, 220, 122);
+    color: rgb(182, 160, 35);
+    padding: 6px;
+    font-weight: bold;
+    margin: 8px auto 0 auto;
+    display: none;
+}
+
 /* Header */
 .header {
     width: 100%;
@@ -111,6 +138,7 @@ textarea { resize: none; }
     font-size: 1.5rem;
     font-weight: 500;
     color: white;
+    margin-bottom: 16px;
 }
 
 .banner__input {
@@ -119,7 +147,6 @@ textarea { resize: none; }
     height: 42px;
     border: 2px solid #ccc;
     padding-left: 16px;
-    margin: 16px 0;
 }
 
 .banner__submit {
@@ -129,6 +156,7 @@ textarea { resize: none; }
     font-size: 1.25rem;
     background-color: #00c59e;
     color: white;
+    margin-top: 16px;
 }
 
 .bullets {

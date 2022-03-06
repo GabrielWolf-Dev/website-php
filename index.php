@@ -57,6 +57,10 @@
         <h4 class="footer__content">Todos os direitos reservados</h4>
     </footer>
     <script src="<?php echo INCLUDE_PATH ?>js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH ?>js/mail-check.min.js"></script>
+    <?php if($isUrl === 'contato') { ?>
+        <script src="<?php echo INCLUDE_PATH ?>js/mask-input.min.js"></script>
+    <?php } ?>
     <script src="<?php echo INCLUDE_PATH ?>js/scripts.js"></script>
     <?php if($isUrl === 'home' || $isUrl === '') { ?>
         <script src="<?php echo INCLUDE_PATH ?>js/slider.js"></script>

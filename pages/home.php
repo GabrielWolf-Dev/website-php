@@ -8,9 +8,11 @@
         <form method="POST" class="banner-email-marketing">
             <h2 class="banner__title">Saiba mais sobre o nosso produto:</h2>
             <input placeholder="Digite o seu e-mail..." required type="email" class="banner__input" name="email" id="email" />
+            <div class="msg-error">lorem ispum</div>
             <input type="hidden" name="form-home" />
 
             <button class="banner__submit" type="submit">Enviar</button>
+            <div class="spinner"></div><!--spinner-->
         </form><!--banner-email-marketing-->
 
         <div class="bullets"></div><!--bullets-->

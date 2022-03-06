@@ -34,7 +34,3 @@ if(isset($_POST['form-home'])) {
     $mail->formatEmailForm($subject, $body);
     $mail->sendEmail($data);
 }
-
-/*
-    Para ocorrer corretamente as requisições, não posso colocar um "path" que tenha letras maiúsculas, então coloquei este script numa pasta separada, pois é regra do nosso autoload letras maúsculas na nossa página.
-*/
