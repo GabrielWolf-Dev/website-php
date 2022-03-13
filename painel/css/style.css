@@ -73,3 +73,13 @@ textarea { resize: none; }
     display: block;
     margin: 24px auto 0 auto;
 }
+
+.login-error {
+    padding: 8px 2%;
+    background-color: rgb(235, 56, 56);
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -7,7 +7,7 @@ $data = [];
 
 if(isset($_POST['form-home'])) {
     $template = file_get_contents(INCLUDE_PATH.'email_mkt/template.html');
-    $email = htmlspecialchars($_POST['email']);
+    $email = strip_tags($_POST['email']);
     $name = explode("@", $email);
 
     if($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -17,14 +17,14 @@ if(isset($_POST['form-home'])) {
         $mail->sendEmail($data);
     }
 } else if(isset($_POST['form-contact'])) {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
+    $name = strip_tags($_POST['name']);
+    $email = strip_tags($_POST['email']);
 
     $subject = "{$name} te enviou uma mensagem!";
     $body = "";
     foreach($_POST as $key => $value) {
         if($key !== 'form-contact'){ // Para não adicionar este campo...
-            $body.=ucfirst($key).": ".htmlspecialchars($value);
+            $body.=ucfirst($key).": ".strip_tags($value);
             $body.="<hr />";
         }
     }
