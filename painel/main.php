@@ -37,6 +37,7 @@
         </div>
       </nav>
     </aside>
+
     <header class="header-panel">
       <div class="center">
         <div class="menu-btn">
@@ -51,6 +52,18 @@
         </nav>
       </div>
     </header>
+
+    <main class="panel">
+      <div class="box-panel left w50"></div>
+
+      <div class="box-panel right w50"></div>
+
+      <div class="clear"></div>
+    </main>
+
     <div class="clear"></div>
+
+    <script src="<?php echo INCLUDE_PATH ?>js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PANEL ?>/js/menuMobile.js"></script>
   </body>
 </html>

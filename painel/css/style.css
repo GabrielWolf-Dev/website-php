@@ -11,6 +11,10 @@ body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 button,
 input[type="submit"] {
   border: 0;
@@ -100,14 +104,6 @@ textarea {
 }
 
 /* Panel Page: */
-.menu {
-  width: 300px;
-  height: 100%;
-  float: left;
-  background-color: #455a64;
-  padding: 10px;
-}
-
 .box-user {
   text-align: center;
 }
@@ -143,9 +139,18 @@ textarea {
 
 .header-panel {
   width: calc(100% - 300px);
-  padding: 10px 0;
+  padding: 10px;
   background-color: #78909c;
   float: left;
+}
+
+.menu {
+  width: 300px;
+  height: 100%;
+  float: left;
+  background-color: #455a64;
+  padding: 10px;
+  overflow-x: hidden;
 }
 
 .loggout {
@@ -162,4 +167,58 @@ textarea {
   cursor: pointer;
   font-size: 23px;
   color: white;
+}
+
+/* Panel */
+.w100 {
+  width: 100%;
+}
+
+.w50 {
+  width: 48%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.panel {
+  width: calc(100% - 300px);
+  height: calc(100% - 47px);
+  position: fixed;
+  top: 47px;
+  left: 300px;
+  background-color: green;
+  overflow-y: scroll;
+  display: block;
+  padding: 10px;
+}
+
+.box-panel {
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    width: 0px;
+    padding: 0px;
+    display: none;
+  }
+
+  .panel {
+    width: 100%;
+    left: 0;
+  }
+
+  .header-panel {
+    width: 100%;
+  }
 }
