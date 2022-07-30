@@ -19,12 +19,3 @@
         "from_name" => "User Name",
     ]);
     define('INCLUDE_PATH', 'http://localhost/website-php/');
-    define('INCLUDE_PATH_PANEL', 'http://localhost/website-php/painel');
-    define('DB_LOGIN', [
-        "host" => 'localhost',
-        "user" => 'root',
-        "password" => '',
-        "db_name" => 'website-php'
-    ]);
-
-    session_start();
