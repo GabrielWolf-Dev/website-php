@@ -19,14 +19,18 @@
             $sql->execute(array($user, $passwd));
 
             if($sql->rowCount() == 1) {
+                $info = $sql->fetch();
                 $_SESSION['login'] = true;
+                $_SESSION['name'] = $info['name'];
+                $_SESSION['permission'] = $info['office'];
+                $_SESSION['img'] = $info['img'];
 
                 header('Location: '.INCLUDE_PATH_PANEL);
                 die();
             } else {
                 $_SESSION['login'] = false;
 
-                echo '<aside class="login-error">Usuário ou senha incorretos</aside>';
+                echo '<div class="login-error">Usuário ou senha incorretos</div>';
             }
         }
     ?>
